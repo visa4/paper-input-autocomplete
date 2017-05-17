@@ -171,7 +171,10 @@ Example:
       /**
        * `_suggestions` Array with the actual suggestions to display
        */
-      _suggestions: Array,
+      _suggestions: {
+          type: Array,
+          notify: true
+      },
 
       /**
        * Set to true to disable this input. Bind this to both the `<paper-input-container>`'s
@@ -487,7 +490,8 @@ Example:
 
       this.$.input.value = selectedOption.text;
       this.value = selectedOption.value;
-
+      this.fire('itemSelected', {value:  this.value });
+      
       setTimeout(function() {
         self._hideSuggestionsWrapper();
       }, 300);
