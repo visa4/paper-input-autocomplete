@@ -416,6 +416,7 @@ Example:
       this.$.input.value = '';
       this.$.clear.style.display = 'none';
       this.value = undefined;
+      this.fire('clear', {value:  this.value });
       this._hideSuggestionsWrapper();
     },
 
